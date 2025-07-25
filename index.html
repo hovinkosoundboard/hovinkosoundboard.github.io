@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The HOVINKOVASRACKA Soundboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            background-image: url('bg.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            padding-top: 130px;
+            padding-bottom: 150px;
+            box-sizing: border-box;
+        }
+        .header, .footer {
+            background: linear-gradient(to bottom, #00c600, #00a109);
+            color: white;
+            padding: 0px 10px;
+            width: 100vw;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            position: fixed;
+            left: 0;
+            z-index: 20;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header {
+            top: 0;
+            border-bottom: 6px solid white;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+        }
+        .footer {
+            bottom: 0;
+            border-top: 6px solid white;
+            border-bottom: none;
+            box-shadow: 0 -6px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .header-logo {
+            flex-grow: 1;
+            text-align: center;
+            height: 90px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            font-size: 1.8rem;
+        }
+
+        .social-icon {
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            transition: transform 0.2s ease;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .footer-content {
+            position: relative;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+            min-height: 80px;
+        }
+
+        .character-image-footer {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 180px;
+            width: auto;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+
+        .sound-button {
+            width: 100%;
+            background: linear-gradient(
+                to bottom,
+                #a3ea5a 0%,
+                #69cf31 50%,
+                #379d11 50%,
+                #238c0a 100%
+            );
+            color: white;
+            font-weight: bold;
+            border: 3px solid #234c0d;
+            border-radius: 12px;
+            padding: 10px 20px;
+            font-size: 16px;
+            box-shadow: 0 5px #234c0d;
+            text-shadow: 1px 1px 2px #000;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 50px;
+        }
+
+        .sound-button:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px #234c0d;
+        }
+
+        @media (max-width: 300px) {
+            .header, .footer {
+                padding: 15px 10px;
+                font-size: 1.2rem;
+            }
+            .header .header-logo {
+                height: 40px;
+            }
+            .footer .social-icons {
+                font-size: 1.4rem;
+            }
+            .footer .character-image-footer {
+                height: 40px;
+            }
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            .sound-button {
+                font-size: 0.9rem;
+                padding: 12px 8px;
+            }
+            .container {
+                padding-top: 80px;
+                padding-bottom: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="logo.png" alt="Soundboard Logo" class="header-logo">
+    </div>
+    <div class="container">
+        <div class="grid-container">
+            <div class="sound-button" data-sound="audio/1.mp3">TEST 1</div>
+            <div class="sound-button" data-sound="audio/2.mp3">TEST 2</div>
+            <div class="sound-button" data-sound="audio/3.mp3">TEST 3</div>
+            <div class="sound-button" data-sound="audio/4.mp3">TEST 4</div>
+            <div class="sound-button" data-sound="audio/5.mp3">TEST 5</div>
+            <div class="sound-button" data-sound="audio/6.mp3">TEST 6</div>
+            <div class="sound-button" data-sound="audio/7.mp3">TEST 7</div>
+            <div class="sound-button" data-sound="audio/8.mp3">TEST 8</div>
+            <div class="sound-button" data-sound="audio/9.mp3">TEST 9</div>
+            <div class="sound-button" data-sound="audio/10.mp3">TEST 10</div>
+            <div class="sound-button" data-sound="audio/11.mp3">TEST 11</div>
+            <div class="sound-button" data-sound="audio/12.mp3">TEST 12</div>
+            <div class="sound-button" data-sound="audio/13.mp3">TEST 13</div>
+            <div class="sound-button" data-sound="audio/14.mp3">TEST 14</div>
+            <div class="sound-button" data-sound="audio/15.mp3">TEST 15</div>
+            <div class="sound-button" data-sound="audio/16.mp3">TEST 16</div>
+            <div class="sound-button" data-sound="audio/17.mp3">TEST 17</div>
+            <div class="sound-button" data-sound="audio/18.mp3">TEST 18</div>
+            <div class="sound-button" data-sound="audio/19.mp3">TEST 19</div>
+            <div class="sound-button" data-sound="audio/20.mp3">TEST 20</div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-content">
+            <img src="ondra.png" alt="Postava" class="character-image-footer">
+            <div class="social-icons">
+                <a href="https://www.instagram.com/hovinkova.sracka" target="_blank" rel="noopener noreferrer" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://soundcloud.com/jovikovasracka" target="_blank" rel="noopener noreferrer" class="social-icon">
+                    <i class="fab fa-soundcloud"></i>
+                </a>
+                <a href="https://open.spotify.com/artist/54XY2huHMzn7gkhcIVKy7M" target="_blank" rel="noopener noreferrer" class="social-icon">
+                    <i class="fab fa-spotify"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function playSound(soundFile) {
+            const audio = new Audio(soundFile);
+            audio.play().catch(e => console.error("Chyba při přehrávání zvuku:", e));
+        }
+
+        document.querySelectorAll('.sound-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const soundFile = button.getAttribute('data-sound');
+                if (soundFile) {
+                    playSound(soundFile);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
